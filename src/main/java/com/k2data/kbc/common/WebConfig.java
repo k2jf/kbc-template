@@ -44,13 +44,11 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/webui/**").addResourceLocations("classpath:/dist/");
-		registry.addResourceHandler("/s/**").addResourceLocations("classpath:/dist/");
 	}
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		String homePage = "/%s/index.html";
 		registry.addViewController("/").setViewName("forward:" + String.format(homePage,"webui"));
-		registry.addViewController("/s/").setViewName("forward:" + String.format(homePage,"s"));
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 

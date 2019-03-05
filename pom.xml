@@ -36,7 +36,7 @@
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.2</version>
+				<version>1.6</version>
 				<configuration>
 					<installDirectory>target</installDirectory>  <!-- 该插件的安装位置 -->
 					<!-- webpack的工作目录，所有的配置文件/package.json/component/js及all所有和react有关的文件都在这个目录里存放 -->
@@ -49,8 +49,8 @@
 							<goal>install-node-and-npm</goal>
 						</goals>
 						<configuration>
-							<nodeVersion>v10.15.1</nodeVersion>
-							<npmVersion>3.9.3</npmVersion>
+							<nodeVersion>v11.10.0</nodeVersion>
+							<npmVersion>6.7.0</npmVersion>
 						</configuration>
 					</execution>
 					<execution>
@@ -62,11 +62,20 @@
 							<arguments>install</arguments>
 						</configuration>
 					</execution>
-					<execution>
-						<id>webpack build</id> <!-- webpack build -->
+					<!--<execution>
+						<id>webpack build</id> &lt;!&ndash; webpack build &ndash;&gt;
 						<goals>
 							<goal>webpack</goal>
 						</goals>
+					</execution>-->
+					<execution>
+						<id>npm run build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run build</arguments>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
